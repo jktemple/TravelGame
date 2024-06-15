@@ -7,8 +7,16 @@ using Ink.Runtime;
 
 public class DialogueManager : MonoBehaviour
 {
+
+    [Header("Params")]
+    [SerializeField] private float typingSpeed = 0.04f;
+
+    [Header("Ink GLobal Variable JSON")]
+    [SerializeField] private TextAsset loadVariablesJSON;
+
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private GameObject continueIcon;
     [SerializeField] private TextMeshProUGUI dialogueText;
 
     [Header("Choices UI")]
@@ -17,11 +25,17 @@ public class DialogueManager : MonoBehaviour
 
     private Story currentStory;
 
-    public bool dialogueIsPlaying;
+    public bool DialogueIsPlaying { get; private set; }
+
+    private bool canContinueToNextLine = false;
+
+    private Coroutine displayLineCoroutine;
 
     private static DialogueManager instance;
 
     private PlayerControls controls;
+
+    private DialogueVariables dialogueVariables;
 
     private void Awake()
     {
@@ -30,13 +44,14 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("Found more than one Dialogue Manager");
         }
         instance = this; 
+        dialogueVariables = new DialogueVariables(loadVariablesJSON);
     }
 
     public static DialogueManager GetInstance() { return instance; }
 
     private void Start()
     {
-        dialogueIsPlaying = false;
+        DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         controls = InputManager.Instance().playerControls;
         controls.Enable();
@@ -53,9 +68,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if(!dialogueIsPlaying) { return; }
+        if(!DialogueIsPlaying) { return; }
 
-        if (controls.UI.Submit.WasPerformedThisFrame())
+        if (controls.UI.Submit.WasPerformedThisFrame() && canContinueToNextLine && currentStory.currentChoices.Count == 0)
         {
             ContinueStory();
         }
@@ -64,29 +79,69 @@ public class DialogueManager : MonoBehaviour
     public void EnterDialogueMode(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
-        dialogueIsPlaying = true;
+        DialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+
+        dialogueVariables.StartListening(currentStory);
 
         ContinueStory();
     }
 
     private void ExitDialogueMode()
     {
-        dialogueIsPlaying = false;
+        DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = " ";
+        dialogueVariables.StopListening(currentStory);
     }
 
     private void ContinueStory()
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
-            DisplayChoices();
+            if(displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+            
         }
         else
         {
             ExitDialogueMode();
+        }
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        //empty text
+        dialogueText.text = "";
+
+        continueIcon.SetActive(false);
+        HideChoices();
+        canContinueToNextLine = false;
+        //display the letters one at a time
+        foreach (char letter in line.ToCharArray())
+        {
+            if (InputManager.Instance().playerControls.UI.Submit.IsPressed())
+            {
+                dialogueText.text = line;
+                break;
+            }
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        continueIcon.SetActive(true);
+        DisplayChoices();
+        canContinueToNextLine = true;
+    }
+
+    private void HideChoices()
+    {
+        foreach (GameObject choiceButton in choices)
+        {
+            choiceButton.SetActive(false);
         }
     }
 
@@ -118,7 +173,20 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        currentStory.ChooseChoiceIndex(choiceIndex);
-        ContinueStory();
+        if (canContinueToNextLine)
+        {
+            currentStory.ChooseChoiceIndex(choiceIndex);
+            ContinueStory();
+        }
+    }
+
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        dialogueVariables.Variables.TryGetValue(variableName, out Ink.Runtime.Object variableValue);
+        if (variableValue == null)
+        {
+            Debug.LogWarning("Ink Variable was found to be null: " + variableName);
+        }
+        return variableValue;
     }
 }

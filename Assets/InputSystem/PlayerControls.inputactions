@@ -18,7 +18,18 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "cf728782-5ec4-4706-878d-a375e78c4af7",
+                    "id": "4c218cf0-0690-466b-9ef5-f4e2e5fb9cf0",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a482d5d5-0be5-4076-a9fb-32a59526ffdf",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",

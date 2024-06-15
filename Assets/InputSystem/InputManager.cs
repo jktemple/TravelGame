@@ -24,6 +24,7 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerControls.UI.Submit.WasPressedThisFrame()) Debug.Log(playerControls.UI.Submit.WasPressedThisFrame());
+
     }
 }

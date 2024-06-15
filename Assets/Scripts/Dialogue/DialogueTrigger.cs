@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue() 
     {
-        if (!DialogueManager.GetInstance().dialogueIsPlaying)
+        if (!DialogueManager.GetInstance().DialogueIsPlaying)
         {
             DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
         }

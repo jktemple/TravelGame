@@ -1477,13 +1477,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08769bb38dc93d4ab7d875068180a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typingSpeed: 0.04
+  loadVariablesJSON: {fileID: 4900000, guid: 6c30102e964fd6a44b561b13c824a50b, type: 3}
   dialoguePanel: {fileID: 223294751}
+  continueIcon: {fileID: 1467091129}
   dialogueText: {fileID: 731972967}
   choices:
   - {fileID: 707700030}
   - {fileID: 1358455460}
   - {fileID: 857143427}
-  dialogueIsPlaying: 0
 --- !u!1 &1464769376
 GameObject:
   m_ObjectHideFlags: 0
