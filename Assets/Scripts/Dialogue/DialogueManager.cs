@@ -5,7 +5,7 @@ using UnityEditorInternal;
 using UnityEngine;
 using Ink.Runtime;
 using UnityEngine.SearchService;
-using UnityEditor;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -24,6 +24,14 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
+
+    [Header("Guess UI")]
+    [SerializeField] private GameObject[] guessButtons;
+
+    [Header("Onject UI")]
+    [SerializeField] private GameObject[] objectButtons;
+
+
     private TextMeshProUGUI[] choicesText;
 
     private Story currentStory;
@@ -45,6 +53,8 @@ public class DialogueManager : MonoBehaviour
     private const string INTERNAL_TYPE_TAG = "internal";
     private const string EXTERNAL_TYPE_TAG = "external";
 
+    private string correctGuessString;
+
     private void Awake()
     {
         if(instance != null)
@@ -59,6 +69,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+
         DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         controls = InputManager.Instance().playerControls;
@@ -72,6 +83,8 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+        ExitGuessMode();
+        HideObjectButtons();
     }
 
     private void Update()
@@ -84,15 +97,20 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, string correctGuess)
     {
         currentStory = new Story(inkJSON.text);
         DialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
-
+        HideObjectButtons();
         dialogueVariables.StartListening(currentStory);
-        nameTagText.text = "???";
 
+        currentStory.BindExternalFunction("enterGuessMode", (bool mode) =>
+        {
+            EnterGuessMode();
+        });
+        nameTagText.text = "???";
+        correctGuessString = correctGuess;
         ContinueStory();
     }
 
@@ -102,6 +120,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = " ";
         dialogueVariables.StopListening(currentStory);
+        currentStory.UnbindExternalFunction("enterGuessMode");
+        ShowObjectButtons();
     }
 
     private void ContinueStory()
@@ -233,4 +253,54 @@ public class DialogueManager : MonoBehaviour
         }
         return variableValue;
     }
+    
+    private void EnterGuessMode() 
+    { 
+        foreach(GameObject b in guessButtons)
+        {
+            b.SetActive(true);
+            string text = b.GetComponentInChildren<TextMeshProUGUI>().text;
+            b.GetComponentInChildren<Button>().onClick.AddListener(delegate { Guess(text); });
+        }
+    }
+     
+    private void Guess(string s)
+    {
+        if (s == correctGuessString)
+        {
+            currentStory.ChoosePathString("correctAnswer");
+            ContinueStory();
+        } else
+        {
+            currentStory.ChoosePathString("incorrectAnswer");
+            ContinueStory();
+        }
+        ExitGuessMode();
+    }
+
+    private void ExitGuessMode()
+    {
+        foreach (GameObject b in guessButtons)
+        {
+            b.SetActive(false);
+            b.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
+        }
+    }
+
+    private void HideObjectButtons()
+    {
+        foreach(GameObject o in objectButtons)
+        {
+            o.SetActive(false);
+        }
+    }
+
+    private void ShowObjectButtons()
+    {
+        foreach (GameObject o in objectButtons)
+        {
+            o.SetActive(true);
+        }
+    }
+    
 }

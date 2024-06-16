@@ -6,6 +6,8 @@ public class DialogueTrigger : MonoBehaviour
 {
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
+    [Header("Correct Guess String")]
+    [SerializeField] private string correctGuessString;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (!DialogueManager.GetInstance().DialogueIsPlaying)
         {
-            DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+            DialogueManager.GetInstance().EnterDialogueMode(inkJSON, correctGuessString);
         }
     }
 
