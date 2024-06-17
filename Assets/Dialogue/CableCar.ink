@@ -39,9 +39,12 @@ I think that should give you a pretty good idea of where we got this. Do you rem
 ===correctAnswer===
 That's right, San Francisco! Good job, Honey, I knew you could do it! #speaker:Harold
 He's treating me like a child! I knew it was San Francisco! Have I really gotten so forgetful that he thinks I don't remember our trip to California? #speaker:Diane #type:internal
+~numCorrectGuesses=numCorrectGuesses+1
+~objectsCompleted=objectsCompleted+1
 ->END
 
 ===incorrectAnswer===
 Oh... no Honey, we got this in San Francisco. We went here when we were in our 20s, so it was a long time ago. Maybe this one is too hard. #speaker:Harold
 I thought the doctor said that it's mostly my short-term memoery that will be affected at this point... am I losing my long-term memory already? #speaker:Diane #type:internal
+~objectsCompleted=objectsCompleted+1
 ->END

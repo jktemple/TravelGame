@@ -33,7 +33,7 @@ How old was I in the 90s? I feel like I was young... but I also think we had the
     ->holdingKnot
     
 ===holdingKnot===
-Okay, I think you should have a pretty good idea of where we got these now. Do you want to guess?speaker:Harold
+Okay, I think you should have a pretty good idea of where we got these now. Do you want to guess? #speaker:Harold
 ->holdingKnot
 
 ===correctAnswer===
@@ -41,11 +41,14 @@ Yes, St. Petersburg! Lots of Americans wanted to visit Russia after the Berlin W
 Because it's so far North. #speaker:Diane
 Yes, I think it's the farthest North we've ever traveled. Good memory, Honey!#speaker:Harold
 I remember that itgets colder the farther North you go, but I didn't remember it being cold when we went there. As long as I can make connections like that, maybe I can pass as someone who's not losing their mind.#speaker:Diane #type:internal
+~numCorrectGuesses=numCorrectGuesses+1
+~objectsCompleted=objectsCompleted+1
 ->END
 
 ===incorrectAnswer===
 Actually, we got these dolls in St. Petersburg, Russia. We went there after the fall of the Berlin Wall: you said you were always curious to see what it looks like after years of teaching about it, so we went! #speaker:Harold
 What did I teach about it? #speaker:Diane
 Well, you taught geography, so you taught a lot about the history of Russia and the USSR and how it incorporated so much of Europe and Asia.#speaker:Harold
-You’d think I’d remember all of this stuff if I was so educated on it, but I can’t. Am I going to lose everything I’ve ever known? #speaker:Diane #type:Internal
+You’d think I’d remember all of this stuff if I was so educated on it, but I can’t. Am I going to lose everything I’ve ever known? #speaker:Diane #type:internal
+~objectsCompleted=objectsCompleted+1
 ->END

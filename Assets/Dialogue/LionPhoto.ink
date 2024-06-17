@@ -40,6 +40,8 @@ Okay Honey, do you know where this photo was taken? #speaker:Harold
 That’s right, South Africa! After Adam saw the Lion King he insisted that we go on a safari to see real-life lions. Kristen was a little older and pouted for the first half of the trip, but as soon as she saw the lions and elephants, she was immediately obsessed. She says it was this trip that inspired her to get into nature photography: she’s the one who took this picture! #speaker:Harold
 I knew it was South Africa! And I remember drinking really good wine there too. #speaker:Diane
 Yes! For years after this trip, you would only buy South African wines. #speaker:Harold
+~numCorrectGuesses=numCorrectGuesses+1
+~objectsCompleted = objectsCompleted+1
 ->END
 
 ===incorrectAnswer===
@@ -48,4 +50,5 @@ Oh, sorry Honey, that picture was taken in South Africa. After Adam saw the Lion
  No, that’s your name, Honey. #speaker:Harold
  Oh right, my daughter is... Kristen. #speaker:Diane
  Exactly right. #speaker:Harold
+ ~objectsCompleted = objectsCompleted+1
 ->END
