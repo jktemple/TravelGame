@@ -57,12 +57,15 @@ Where was it?#speaker:Diane #type:internal
 ===correctAnswer===
 That’s right, Paris! This was one of my favorite trips we took, even if I was too chicken to go to the top of the Eiffel Tower.#speaker:Harold #type:external
  I knew it! Okay, maybe my memory is still working pretty well.#speaker:Diane
+ ~numCorrectGuesses=numCorrectGuesses+1
+ ~objectsCompleted=objectsCompleted+1
  ->END
  
 ===incorrectAnswer===
 Nope, not there. This picture was taken in Paris, France. We took it almost 15 years ago. #speaker:Harold
 Oh right, I knew that. #Diane
 Why didn’t I know that? I know what the Eiffel Tower is. I was a geography teacher for crying out loud! #type:internal
+~objectsCompleted=objectsCompleted+1
     -> END
 ===returing_after_finished===
     Paris sure was great (test dialogue) #speaker:Harold #type:external
