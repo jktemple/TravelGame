@@ -11,6 +11,7 @@ It’s such a lovely day out though, Bear. Can’t we just go for a walk? #speak
 Dr. Wasserman said that we should do memory puzzles at least once a day. Now come on, let’s try at least one picture. #speaker:Harold
 Ohhhh alright. #speaker:Diana
 ~parisPhotoVisits=parisPhotoVisits+1
+//Fade to black and fade up on the photo
 ->questions_start
 
 ===questions_start===
@@ -42,15 +43,15 @@ Now where did we take this picture?#speaker:Harold
     ~numQuestions=numQuestions+1
     ->questions_return
 * ->
+//this line calls a function in Unity to enter the mode for guessing the place
     ~enterGuessMode(true)
     ~parisPhotoCompleted = true
     -> holdingKnot
     
 ===holdingKnot===
 Now where did we take this picture?#speaker:Harold
-Where was it?#speaker:Diane tpye;internal
+Where was it?#speaker:Diane #type:internal
 ->holdingKnot
-    
     
     
 ===correctAnswer===
