@@ -256,6 +256,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60278015}
   m_CullTransparentMesh: 1
+--- !u!1 &98565404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3398888131869039390, guid: c67c58a133ff3a8498624bb3768c7b54, type: 3}
+  m_PrefabInstance: {fileID: 556371460943697125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &114523000
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +998,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 619172988}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 619172990}
+        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &619172988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2396,11 +2413,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406516874}
   m_CullTransparentMesh: 1
---- !u!1 &1467091129 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3398888131869039390, guid: c67c58a133ff3a8498624bb3768c7b54, type: 3}
-  m_PrefabInstance: {fileID: 556371460943697125}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1544037577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3730,7 +3742,7 @@ PrefabInstance:
     - target: {fileID: 697317711085710625, guid: 03661d1606348e04e8a4a8f27964d76b, type: 3}
       propertyPath: continueIcon
       value: 
-      objectReference: {fileID: 1467091129}
+      objectReference: {fileID: 98565404}
     - target: {fileID: 697317711085710625, guid: 03661d1606348e04e8a4a8f27964d76b, type: 3}
       propertyPath: dialogueText
       value: 

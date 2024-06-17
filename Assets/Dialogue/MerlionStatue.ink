@@ -1,40 +1,34 @@
 INCLUDE Globals.ink
 VAR numQuestions = 0
-
-{objectsCompleted<6:
-    It's not time for this one yet #speaker:Harold #type:external
-    ->END
-    -else: ->start
-}
-    
+hmmmm...#speaker:Diane #type:internal
+{objectsCompleted <5: ->too_early | ->start}
+===too_early===
+It's not time for this one yet #speaker:Harold #type:external
+->END
 ===start=== 
 {
-    -numCorrectGuesses<1: 
-        Oh… maybe we should stop, Honey. It seems like you’re having a tough time today. #speaker:Harold #type:external
+-numCorrectGuesses<1: Oh… maybe we should stop, Honey. It seems like you’re having a tough time today. #speaker:Harold #type:external
         Let me try just one more, please. #speaker:Diane
         Okay Honey, just one more. #speaker:Harold
         ->question_knot
-    - numCorrectGuesses<4:
-        Oh I just found this one! But it might be too tricky… I mean, I barely recognize it myself. Do you want to try it? #speaker:Harold #type:external
+    - numCorrectGuesses<4: Oh I just found this one! But it might be too tricky… I mean, I barely recognize it myself. Do you want to try it? #speaker:Harold #type:external
         I can do it! I’ll just need some help. #speaker:Diane
         I… think I can do this. #type:internal
         ->question_knot
-    -else:
-    Oh here’s one more! It might be a really tricky one… but you’ve been doing so well, so I’m sure you’ll remember this one.#speaker:Harold #type:external
-    I have no idea what the heck this thing even is. #speaker:Diane #type:internal
+    -else: Oh here’s one more! It might be a really tricky one… but you’ve been doing so well, so I’m sure you’ll remember this one.#speaker:Harold #type:external
+        I have no idea what the heck this thing even is. #speaker:Diane #type:internal
         ->question_knot
 }
     
 ===question_knot===
 {
     -numQuestions<2:
-        Where could this be from? #speaker:Diane type:internal
+        Where could this be from? #speaker:Diane #type:internal
   - numQuestions<3:
        Oh this trip was very recent, I know that… but do I know where it is? #speaker:Diane #type:internal
    - else:
         It’s getting late, Honey. Why don’t you tell me where you think we got this and then we can go on that walk?#speaker:Harold #type:external
 }
-
 *[What the heck is this thing?]
    We were both surprised to see this guy, but when we asked a local they told us that it’s the country’s mascot! #speaker:Harold #type:external
    ~numQuestions=numQuestions+1
