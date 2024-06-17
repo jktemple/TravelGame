@@ -9,7 +9,7 @@ VAR completed = false
 Come on Honey, let’s do this exercise. #speaker:Harold
 It’s such a lovely day out though, Bear. Can’t we just go for a walk? #speaker:Diane
 Dr. Wasserman said that we should do memory puzzles at least once a day. Now come on, let’s try at least one picture. #speaker:Harold
-Ohhhh alright. #speaker:Diana
+Ohhhh alright. #speaker:Diane
 ~parisPhotoVisits=parisPhotoVisits+1
 //Fade to black and fade up on the photo
 ->questions_start
@@ -65,6 +65,6 @@ Oh right, I knew that. #Diane
 Why didn’t I know that? I know what the Eiffel Tower is. I was a geography teacher for crying out loud! #type:internal
     -> END
 ===returing_after_finished===
-    Paris sure was great (test dialogue) #speaker:Harold #type:external
+    Alright Honey, why don't you pick another souvenier and we'll do the same thing. #speaker:Harold #type:external
 ->END
 
