@@ -1,1 +1,1 @@
-﻿{"inkVersion":21,"root":[["\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev",false,{"VAR=":"parisPhotoCompleted"},0,{"VAR=":"parisPhotoVisits"},0,{"VAR=":"numCorrectGuesses"},"str","^","/str",{"VAR=":"name"},"/ev","end",null],"#f":1}],"listDefs":{}}
+﻿{"inkVersion":21,"root":[["\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev",false,{"VAR=":"parisPhotoCompleted"},0,{"VAR=":"parisPhotoVisits"},0,{"VAR=":"numCorrectGuesses"},0,{"VAR=":"objectsCompleted"},"str","^","/str",{"VAR=":"name"},"/ev","end",null],"#f":1}],"listDefs":{}}
