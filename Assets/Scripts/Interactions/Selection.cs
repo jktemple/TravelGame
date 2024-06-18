@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -65,7 +66,7 @@ public class Selection : MonoBehaviour
            {
                selection.GetComponent<MeshRenderer>().material = originalMaterial;
                selection = null;
-                isselected = true;
+               isselected = true;
            }
 
         
@@ -95,16 +96,32 @@ public class Selection : MonoBehaviour
  
            
     }
-
+    private bool inMotion = false;
     public void holdItem()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && selection != null)
+        if (Input.GetKey(KeyCode.Mouse0) && selection != null && !inMotion)
         {
-            selection.position = targetPoint.position;
+            //selection.position = targetPoint.position;
+            Debug.Log("starting grab");
+            StartCoroutine(MoveToPosition(selection, selection.position, targetPoint.position, 0.25f));
         }
-
-
     }
 
+    
+    private IEnumerator MoveToPosition(Transform o, Vector3 start, Vector3 targetLocation, float time)
+    {
+        inMotion = true;
+        float t = 0;
+        while (t < 1)
+        {
+            Debug.Log("inside while");
+            o.position = Vector3.Lerp(start, targetLocation, t);
+            t = t + Time.deltaTime / time;
+            yield return new WaitForEndOfFrame();
+        }
+        o.position = targetLocation;
+        inMotion = false;
+        yield return null;
+    }
 }
 
