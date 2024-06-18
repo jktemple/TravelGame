@@ -1,10 +1,8 @@
+using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditorInternal;
 using UnityEngine;
-using Ink.Runtime;
-using UnityEngine.SearchService;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -28,8 +26,14 @@ public class DialogueManager : MonoBehaviour
     [Header("Guess UI")]
     [SerializeField] private GameObject[] guessButtons;
 
-    [Header("Object UI")]
-    [SerializeField] private GameObject[] objectButtons;
+    //[Header("Object UI")]
+    //SerializeField] private GameObject[] objectButtons;
+
+    [Header("Map UI")]
+    [SerializeField] private GameObject map;
+
+    [Header("Selector")]
+    [SerializeField] private Selection selector;
 
     [Header("Level Fader")]
     [SerializeField] private LevelChanger levelChanger;
@@ -88,7 +92,10 @@ public class DialogueManager : MonoBehaviour
             index++;
         }
         ExitGuessMode();
-        HideObjectButtons();
+        HideMap();
+        
+        
+        //HideObjectButtons();
     }
 
     private void Update()
@@ -107,7 +114,7 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         DialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
-        HideObjectButtons();
+        //HideObjectButtons();
         dialogueVariables.StartListening(currentStory);
 
         currentStory.BindExternalFunction("enterGuessMode", (bool mode) =>
@@ -120,6 +127,8 @@ public class DialogueManager : MonoBehaviour
         nameTagText.text = "???";
         correctGuessString = correctGuess;
         ContinueStory();
+        selector.canReturnItem = false;
+        
     }
 
     private void ExitDialogueMode()
@@ -131,7 +140,9 @@ public class DialogueManager : MonoBehaviour
         currentStory.UnbindExternalFunction("enterGuessMode");
         currentStory.UnbindExternalFunction("endGame");
         currentStory.UnbindExternalFunction("nextVersion");
-        ShowObjectButtons();
+        selector.canReturnItem = true;
+        selector.ReturnItem();
+        //ShowObjectButtons();
     }
 
     private void EndGame()
@@ -230,6 +241,7 @@ public class DialogueManager : MonoBehaviour
         {
             choiceButton.SetActive(false);
         }
+        
     }
 
     private void DisplayChoices()
@@ -255,7 +267,7 @@ public class DialogueManager : MonoBehaviour
         {
             choices[i].SetActive(false);
         }
-
+        
     }
 
     public void MakeChoice(int choiceIndex)
@@ -278,13 +290,15 @@ public class DialogueManager : MonoBehaviour
     }
     
     private void EnterGuessMode() 
-    { 
-        foreach(GameObject b in guessButtons)
+    {
+        ShowMap();
+        foreach (GameObject b in guessButtons)
         {
             b.SetActive(true);
             string text = b.GetComponentInChildren<TextMeshProUGUI>().text;
             b.GetComponentInChildren<Button>().onClick.AddListener(delegate { Guess(text); });
         }
+        
     }
      
     private void Guess(string s)
@@ -308,8 +322,20 @@ public class DialogueManager : MonoBehaviour
             b.SetActive(false);
             b.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
         }
+        HideMap();
     }
 
+    private void HideMap()
+    {
+        map.SetActive(false);
+    }
+
+    private void ShowMap()
+    {
+        map.SetActive(true);
+    }
+
+    /*
     private void HideObjectButtons()
     {
         foreach(GameObject o in objectButtons)
@@ -325,5 +351,5 @@ public class DialogueManager : MonoBehaviour
             o.SetActive(true);
         }
     }
-    
+    */
 }

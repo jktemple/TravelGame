@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2527170954048188309}
-  - component: {fileID: 8549180459144268786}
   - component: {fileID: 3865835661142225579}
   - component: {fileID: 7984285454027286945}
+  - component: {fileID: 9047363161952549980}
   m_Layer: 0
   m_Name: SouthAfricaPhoto
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 582253923425189931}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0035836436, y: -0.0063621183, z: 0.00086983555}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -36,8 +36,38 @@ Transform:
   - {fileID: 483962132087563895}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &8549180459144268786
-MeshCollider:
+--- !u!114 &3865835661142225579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582253923425189931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd431bc653f82d4f8b96bd00a4fbf59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldRotate: 1
+  materials:
+  - {fileID: 2100000, guid: 10306808f1be1e34db5d2161c0f37c4d, type: 2}
+  render: {fileID: 393843131221383866}
+--- !u!114 &7984285454027286945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582253923425189931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372d5935c660be343b7ef12bac72883d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJSON: {fileID: 4900000, guid: 289a383957735834e897b5af5c51de73, type: 3}
+  correctGuessString: South Africa
+--- !u!65 &9047363161952549980
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -54,39 +84,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1637526288758671210, guid: 397a975b4cdb44d44ade6871b5c61fed, type: 3}
---- !u!114 &3865835661142225579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582253923425189931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd431bc653f82d4f8b96bd00a4fbf59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shouldRotate: 0
-  materials: []
-  render: {fileID: 393843131221383866}
---- !u!114 &7984285454027286945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582253923425189931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 372d5935c660be343b7ef12bac72883d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inkJSON: {fileID: 0}
-  correctGuessString: 
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.001, z: 0.02}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7248322469584236273
 GameObject:
   m_ObjectHideFlags: 0

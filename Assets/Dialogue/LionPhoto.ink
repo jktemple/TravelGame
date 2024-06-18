@@ -2,9 +2,8 @@ INCLUDE Globals.ink
 VAR numVists = 0
 VAR numQuestions = 0
 VAR completed = false
-
+->questions_start
 ===questions_start===
-
 Oh this was an incredible trip, but it’s also the most scared I’ve ever been in my life! Do you remember where we took this picture? #speaker:Harold
 
 This is so frustrating, this picture looks like nothing to me. #speaker:Diane #type:internal
@@ -48,7 +47,8 @@ Yes! For years after this trip, you would only buy South African wines. #speaker
 ->END
 
 ===incorrectAnswer===
-Oh, sorry Honey, that picture was taken in South Africa. After Adam saw the Lion King he insisted that we go on a safari to see real-life lions. Kristen was a little older and pouted for the first half of the trip, but as soon as she saw the lions and elephants, she was immediately obsessed. She says it was this trip that inspired her to get into nature photography: she’s the one who took this picture! #speaker:Harold
+Oh, sorry Honey, that picture was taken in South Africa. After Adam saw the Lion King he insisted that we go on a safari to see real-life lions. Kristen was a little older and pouted for the first half of the trip, but as soon as she saw the lions and elephants, she was immediately obsessed. #speaker:Harold
+She says it was this trip that inspired her to get into nature photography: she’s the one who took this picture! #speaker:Harold
  I remember Adam is my son… but who is Kristen? My daughter’s name is Diane. #speaker:Diane
  No, that’s your name, Honey. #speaker:Harold
  Oh right, my daughter is... Kristen. #speaker:Diane

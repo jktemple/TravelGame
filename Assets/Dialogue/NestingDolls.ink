@@ -2,7 +2,7 @@ INCLUDE Globals.ink
 VAR numVists = 0
 VAR numQuestions = 0
 VAR completed = false
-
+->questions_start
 ===questions_start===
 
 Oh we visited this place in the 90s. It was kind of surreal being there after everything that had happened, but it was a fascinating trip. #speaker:Harold

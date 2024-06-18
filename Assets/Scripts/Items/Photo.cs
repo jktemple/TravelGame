@@ -31,11 +31,8 @@ public class Photo : Item
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Input.GetKey(KeyCode.P))
-        {
-            NextVersion();
-        }
-        */
+        
+        if (Input.GetKeyUp(KeyCode.P)) { NextVersion(); }
+        
     }
 }

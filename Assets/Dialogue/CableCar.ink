@@ -2,9 +2,8 @@ INCLUDE Globals.ink
 VAR numVists = 0
 VAR numQuestions = 0
 VAR completed = false
-
+->questions_start
 ===questions_start===
-
 Ahh, that was a fun trip that we took when we were young, before we were even married. Do you remember where we got this? #speaker:Harold
 
 I can't even tell what this thing is. What the heck am I looking at? #speaker:Diane #type:internal
