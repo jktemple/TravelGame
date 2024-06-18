@@ -26,26 +26,46 @@ public class Selection : MonoBehaviour
         
     }
 
+    Transform currentObject;
+    Vector3 startPos;
+    private bool hasHeldItem = false;
     // Update is called once per frame
     void Update()
     {
-        if(highlight != null)
+        HandleSelection();
+        //cant select if already holding an object
+        if(Input.GetKey(KeyCode.Mouse0) && selection != null && hasHeldItem == false && !inMotion)
+        {
+            
+            HoldItem();
+        }
+
+        if(Input.GetKey(KeyCode.Mouse0) && hasHeldItem && !inMotion)
+        {
+            ReturnItem();
+        }
+        
+    }
+
+    private void HandleSelection()
+    {
+        if (highlight != null)
         {
             highlight.GetComponent<Renderer>().material = originalMaterial;
             highlight = null;
         }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
-        if(!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out hit))
+
+        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out hit))
         {
             highlight = hit.transform;
             isselected = false;
-            if(highlight.CompareTag("Selectable") && highlight != selection)
+            if (highlight.CompareTag("Selectable") && highlight != selection)
             {
-                if(highlight.GetComponent<MeshRenderer>().material != selectionMaterial)
+                if (highlight.GetComponent<MeshRenderer>().material != selectionMaterial)
                 {
-               
+
                     originalMaterial = highlight.GetComponent<MeshRenderer>().material;
                     highlight.GetComponent<MeshRenderer>().material = highlightMaterial;
                 }
@@ -54,59 +74,64 @@ public class Selection : MonoBehaviour
             else
             {
 
-               highlight = null;
+                highlight = null;
             }
         }
 
 
-     
-        if(Input.GetKey(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject())
+
+        if (Input.GetKey(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject())
         {
-           if(selection != null)
-           {
-               selection.GetComponent<MeshRenderer>().material = originalMaterial;
-               selection = null;
-               isselected = true;
-           }
+            if (selection != null)
+            {
+                selection.GetComponent<MeshRenderer>().material = originalMaterial;
+                selection = null;
+                isselected = true;
+            }
 
-        
-           if(!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out hit))
-           {
-               selection = hit.transform;
 
-               if(selection.CompareTag("Selectable"))
-               {
-                   selection.GetComponent<MeshRenderer>().material = selectionMaterial;
-                   
-               }
+            if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out hit))
+            {
+                selection = hit.transform;
+
+                if (selection.CompareTag("Selectable"))
+                {
+                    selection.GetComponent<MeshRenderer>().material = selectionMaterial;
+
+                }
                 else
                 {
                     selection = null;
                 }
-           }
+            }
 
-           
+
         }
-        
-        //cant select if already holding an object
-        if(selection != null && isselected == false)
-        {
-            holdItem();
-        }
- 
-           
     }
+
     private bool inMotion = false;
-    public void holdItem()
+    public void HoldItem()
     {
         if (Input.GetKey(KeyCode.Mouse0) && selection != null && !inMotion)
         {
+            currentObject = selection;
+            startPos = currentObject.position;
             //selection.position = targetPoint.position;
             Debug.Log("starting grab");
             StartCoroutine(MoveToPosition(selection, selection.position, targetPoint.position, 0.25f));
+            hasHeldItem = true;
         }
     }
 
+    private void ReturnItem()
+    {
+        Debug.Log("letting go");
+        StartCoroutine(MoveToPosition(currentObject, targetPoint.position, startPos, 0.25f));
+        hasHeldItem = false;
+        currentObject = null;
+
+        
+    }
     
     private IEnumerator MoveToPosition(Transform o, Vector3 start, Vector3 targetLocation, float time)
     {
