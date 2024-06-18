@@ -10,7 +10,7 @@ This was one of our longest trips. We were in a very foreign country, but we had
   - numQuestions<3:
          I can’t believe I used to be a person who was so bold and worldly. I’ll never be that person again. #speaker:Diane #type:internal
    - else:
-        That’s enough hints. Do you remember where we took this picture?#speaker:Harold #type:external
+         Do you remember where we were when we took that picture, honey?#speaker:Harold #type:external
 }
 
 *[How far away was this place?]
@@ -27,7 +27,7 @@ This was one of the longest trips we ever took. It took us almost a full day to 
     ~numQuestions=numQuestions+1
     ->questions_return
 *->
-    That thing must be getting heavy in your hands. Why don’t you tell me where we got it so you can put it down?#speaker:Harold #type:external
+   
     ~enterGuessMode(true)
     ~snowGlobeCompleted = true
     ->holdingKnot
