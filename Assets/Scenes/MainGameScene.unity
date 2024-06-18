@@ -2276,6 +2276,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2445475746059260934, guid: a38d7e649031652439d9cb4434c0a9b0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.042
+      objectReference: {fileID: 0}
+    - target: {fileID: 2445475746059260934, guid: a38d7e649031652439d9cb4434c0a9b0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2445475746059260934, guid: a38d7e649031652439d9cb4434c0a9b0, type: 3}
+      propertyPath: m_Size.z
+      value: 0.042
+      objectReference: {fileID: 0}
+    - target: {fileID: 2445475746059260934, guid: a38d7e649031652439d9cb4434c0a9b0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6049507670558148476, guid: a38d7e649031652439d9cb4434c0a9b0, type: 3}
       propertyPath: m_Name
       value: SingaporePhoto
