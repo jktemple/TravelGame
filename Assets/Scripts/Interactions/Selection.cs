@@ -44,6 +44,12 @@ public class Selection : MonoBehaviour
         {
             ReturnItem();
         }
+
+        if (hasHeldItem && currentObject != null)
+        {
+            rotateItem(currentObject);
+        }
+     
         
     }
 
@@ -147,5 +153,32 @@ public class Selection : MonoBehaviour
         inMotion = false;
         yield return null;
     }
+
+
+    private void rotateItem (Transform o)
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            o.Rotate(Vector3.right, 1);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            o.Rotate(Vector3.right, -1);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            o.Rotate(Vector3.forward, 1);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            o.Rotate(Vector3.forward, -1);
+        }
+       
+    }
+   
+
 }
 
