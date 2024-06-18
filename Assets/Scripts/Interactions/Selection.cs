@@ -114,7 +114,6 @@ public class Selection : MonoBehaviour
         float t = 0;
         while (t < 1)
         {
-            Debug.Log("inside while");
             o.position = Vector3.Lerp(start, targetLocation, t);
             t = t + Time.deltaTime / time;
             yield return new WaitForEndOfFrame();
