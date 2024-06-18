@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -199,9 +200,10 @@ public class Selection : MonoBehaviour
         yield return null;
     }
 
-
+    bool canRotate = true;
     private void RotateItem (Transform o)
     {
+        if (!canRotate) { return; }
         if (Input.GetKey(KeyCode.W))
         {
             o.Rotate(new Vector3(1, 0, 0));
@@ -218,15 +220,31 @@ public class Selection : MonoBehaviour
         {
             if (rotation)
             {
-                o.rotation = targetPoint.rotation;
+                StartCoroutine(RotateObject(o, o.rotation, targetPoint.rotation, 0.2f));
             } else
             {
-                o.rotation = Quaternion.Euler(Vector3.zero);
+                StartCoroutine(RotateObject(o, o.rotation, Quaternion.Euler(Vector3.zero), 0.2f));
             }
         }
        
     }
-   
+
+    private IEnumerator RotateObject(Transform o, Quaternion start, Quaternion end, float time)
+    {
+
+        canRotate = false;
+        float t = 0;
+        while (t < 1)
+        {
+            o.rotation = Quaternion.Lerp(start, end, t);
+            t += Time.deltaTime / time;
+            yield return new WaitForEndOfFrame();
+        }
+        o.rotation = end;
+        canRotate = true;
+        yield return null;
+    }
+
 
 }
 
