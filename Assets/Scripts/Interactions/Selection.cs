@@ -15,7 +15,9 @@ public class Selection : MonoBehaviour
 
 
     public Transform targetPoint;
- 
+    private bool isselected = false;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,15 +39,17 @@ public class Selection : MonoBehaviour
         if(!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out hit))
         {
             highlight = hit.transform;
-            
+            isselected = false;
             if(highlight.CompareTag("Selectable") && highlight != selection)
             {
                 if(highlight.GetComponent<MeshRenderer>().material != selectionMaterial)
                 {
+               
                     originalMaterial = highlight.GetComponent<MeshRenderer>().material;
                     highlight.GetComponent<MeshRenderer>().material = highlightMaterial;
                 }
             }
+
             else
             {
 
@@ -53,14 +57,18 @@ public class Selection : MonoBehaviour
             }
         }
 
+
+     
         if(Input.GetKey(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject())
         {
            if(selection != null)
            {
                selection.GetComponent<MeshRenderer>().material = originalMaterial;
                selection = null;
+                isselected = true;
            }
 
+        
            if(!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out hit))
            {
                selection = hit.transform;
@@ -75,21 +83,28 @@ public class Selection : MonoBehaviour
                     selection = null;
                 }
            }
+
+           
+        }
         
-        }
-
-        if(selection != null && selection != hit.transform)
+        //cant select if already holding an object
+        if(selection != null && isselected == false)
         {
-            selection.GetComponent<MeshRenderer>().material = originalMaterial;
-            selection = null;
+            holdItem();
         }
+ 
+           
+    }
 
-        if(Input.GetKey(KeyCode.Mouse0) && selection != null)
+    public void holdItem()
+    {
+        if (Input.GetKey(KeyCode.Mouse0) && selection != null)
         {
             selection.position = targetPoint.position;
         }
-       
-           
+
+
     }
+
 }
 
