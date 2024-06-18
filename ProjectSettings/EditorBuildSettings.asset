@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: a0a503254e58fed4ba97f6356d66a86d
   - enabled: 1
-    path: Assets/Scenes/InkDialogueTestScene.unity
-    guid: 7a14abf8cf3154448af3e72bdf56f16c
+    path: Assets/Scenes/MainGameScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/EndingScreen.unity
     guid: 3b946c3a849d15d4cab399e4f4eb1a34

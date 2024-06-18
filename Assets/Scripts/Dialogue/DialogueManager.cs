@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -31,6 +32,10 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Map UI")]
     [SerializeField] private GameObject map;
+
+    [Header("Tutorial UI")]
+    [SerializeField] private GameObject tutorial;
+    [SerializeField] private TextMeshProUGUI tutorialText;
 
     [Header("Selector")]
     [SerializeField] private Selection selector;
@@ -75,6 +80,8 @@ public class DialogueManager : MonoBehaviour
 
     public static DialogueManager GetInstance() { return instance; }
 
+    int numOfDialogues = 0;
+    int numOfContinues = 0;
     private void Start()
     {
 
@@ -128,7 +135,12 @@ public class DialogueManager : MonoBehaviour
         correctGuessString = correctGuess;
         ContinueStory();
         selector.canReturnItem = false;
-        
+
+        numOfDialogues++;
+        if (numOfDialogues > 1)
+        {
+            tutorial.SetActive(false);
+        }
     }
 
     private void ExitDialogueMode()
@@ -142,6 +154,10 @@ public class DialogueManager : MonoBehaviour
         currentStory.UnbindExternalFunction("nextVersion");
         selector.canReturnItem = true;
         selector.ReturnItem();
+        if (tutorial.activeSelf)
+        {
+            tutorialText.text = "Click on an object to pick it up";
+        }
         //ShowObjectButtons();
     }
 
@@ -169,11 +185,28 @@ public class DialogueManager : MonoBehaviour
             displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
             HandleTags(currentStory.currentTags);
 
+            if(tutorial.activeSelf)
+            {
+                if(numOfContinues == 0)
+                {
+                    tutorialText.text = "Left Click Advances the Dialogue";
+                }else if(numOfContinues == 1)
+                {
+                    tutorialText.text = "Use WASD to Rotate the object";
+                } else if(numOfContinues == 5)
+                {
+                    tutorialText.text = "Right click resets the object's rotation";
+                }
+            }
+
         }
         else
         {
             ExitDialogueMode();
         }
+
+        Debug.Log(numOfContinues);
+        numOfContinues++;
     }
 
     private void HandleTags(List<string> tags)
@@ -298,6 +331,10 @@ public class DialogueManager : MonoBehaviour
             string text = b.GetComponentInChildren<TextMeshProUGUI>().text;
             b.GetComponentInChildren<Button>().onClick.AddListener(delegate { Guess(text); });
         }
+        if (tutorial.activeSelf)
+        {
+            tutorialText.text = "Search around the map and guess where the picture was taken";
+        }
         
     }
      
@@ -323,6 +360,10 @@ public class DialogueManager : MonoBehaviour
             b.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
         }
         HideMap();
+        if (tutorial.activeSelf)
+        {
+            tutorialText.text = " ";
+        }
     }
 
     private void HideMap()

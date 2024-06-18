@@ -124,21 +124,21 @@ public class Selection : MonoBehaviour
     bool rotation;
     public void HoldItem(Transform hold)
     {
-        if (Input.GetKey(KeyCode.Mouse0) && hold != null && !inMotion)
+        if (hold != null && !inMotion)
         {
             currentObject = hold;
             startPos = currentObject.position;
             startRot = currentObject.rotation;
             //selection.position = targetPoint.position;
-            Debug.Log("starting grab");
+            //Debug.Log("starting grab");
             Item item = currentObject.GetComponent<Item>();
             rotation = false;
             if (item != null)
             {
-                Debug.Log("item found");
+                //Debug.Log("item found");
                 rotation = item.shouldRotate;
             }
-            Debug.Log(rotation);
+            //Debug.Log(rotation);
             if (rotation)
             {
                 StartCoroutine(MoveToPositionWithRotation(currentObject, currentObject.position, targetPoint.position, startRot, targetPoint.rotation, 0.25f));
@@ -161,7 +161,7 @@ public class Selection : MonoBehaviour
         {
             return;
         }
-        Debug.Log("letting go");
+        //Debug.Log("letting go");
         StartCoroutine(MoveToPositionWithRotation(currentObject, targetPoint.position, startPos,currentObject.rotation, startRot, 0.25f));
         hasHeldItem = false;
         currentObject = null;
