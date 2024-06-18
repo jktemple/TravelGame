@@ -28,8 +28,11 @@ public class DialogueManager : MonoBehaviour
     [Header("Guess UI")]
     [SerializeField] private GameObject[] guessButtons;
 
-    [Header("Onject UI")]
+    [Header("Object UI")]
     [SerializeField] private GameObject[] objectButtons;
+
+    [Header("Level Fader")]
+    [SerializeField] private LevelChanger levelChanger;
 
 
     private TextMeshProUGUI[] choicesText;
@@ -109,6 +112,8 @@ public class DialogueManager : MonoBehaviour
         {
             EnterGuessMode();
         });
+
+        currentStory.BindExternalFunction("endGame", (bool b) => { EndGame(); });
         nameTagText.text = "???";
         correctGuessString = correctGuess;
         ContinueStory();
@@ -121,7 +126,13 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = " ";
         dialogueVariables.StopListening(currentStory);
         currentStory.UnbindExternalFunction("enterGuessMode");
+        currentStory.UnbindExternalFunction("endGame");
         ShowObjectButtons();
+    }
+
+    private void EndGame()
+    {
+        levelChanger.FadeToLevel(2);
     }
 
     private void ContinueStory()

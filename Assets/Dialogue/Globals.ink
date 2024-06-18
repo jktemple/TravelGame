@@ -1,5 +1,6 @@
 //This file is used to declare variables across ink files
 EXTERNAL enterGuessMode(mode)
+EXTERNAL endGame(bool)
 VAR parisPhotoCompleted = false
 VAR cableCarCompleted = false
 VAR lionPhotoCompleted = false

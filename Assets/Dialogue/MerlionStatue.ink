@@ -88,6 +88,7 @@ But how many good days do I have left?#speaker:Diane
 I don’t know, Honey, but I will cherish them when you have them.#speaker:Harold
 I will too. I just don’t want to leave you. Not yet.#speaker:Diane
 I know, D. But you’re still with me today, and that’s all I can ask for. Now let’s go on that walk, huh?#speaker:Harold
+~endGame(true)
 ->END
 ===two_correct===
 That wasn’t too bad, you got a few right.#speaker:Harold
@@ -101,6 +102,7 @@ Diane… I would never think that you’re an idiot. You’re one of the sharpes
 That might be true, but I’ll always remember you as that person, even if you’re not that person anymore.#speaker:Harold
 That’s very sweet, Bear.#speaker:Diane
 We’ve had a very sweet life, Honey.#speaker:Harold
+~endGame(true)
 ->END
 ===all_correct===
 See, you did an amazing job, Honey! I really think everything is going to be okay.#speaker:Harold
@@ -111,4 +113,5 @@ And I’ll be here to help you, D.#speaker:Harold
 I know you will, Bear. I know you will. But eventually, I’m not going to be me anymore, and we need to be ready for that.#speaker:Diane
 Well… you’re you now, and that’s all I can ask for.#speaker:Harold
 Yes. And I’m happy to be here with you now.#speaker:Diane
+~endGame(true)
 ->END
