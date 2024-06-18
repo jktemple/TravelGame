@@ -18,14 +18,17 @@ How old was I in the 90s? I feel like I was young... but I also think we had the
 *[What did we see there?]
     Some of the most ornate and decadent palaces in the world. You can see why they overthrew the emperor!#speaker:Harold #type:external
         ~numQuestions=numQuestions+1
+        ~nextVersion(true)
         ->questions_return
 *[Why is this thing rattling? Is it broken?]
     No, it’s not broken. There’s more of them inside, they just keep getting smaller and smaller. #speaker:Harold
         ~numQuestions=numQuestions+1
+        ~nextVersion(true)
         ->questions_return
 *[What do you mean after everything that happened? What happened?]
      You used to teach about this in school: for a long time our countries weren’t friendly, and this entire part of the world was closed off to Americans. Our countries still aren’t too friendly, but it’s a lot better now than it was before. #speaker:Harold
     ~numQuestions=numQuestions+1
+    ~nextVersion(true)
     ->questions_return
 *->
     ~enterGuessMode(true)

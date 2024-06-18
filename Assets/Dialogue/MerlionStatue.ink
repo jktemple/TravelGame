@@ -31,14 +31,17 @@ It's not time for this one yet #speaker:Harold #type:external
 }
 *[What the heck is this thing?]
    We were both surprised to see this guy, but when we asked a local they told us that it’s the country’s mascot! #speaker:Harold #type:external
+   ~nextVersion(true)
    ~numQuestions=numQuestions+1
    ->question_knot
 *[What do you remember about this trip?]
      It was one of the most amazing cities I’ve ever been to. The city was so clean and the architecture was stunning. And nature was incorporated right into the city itself: there were buildings covered in plants, many zoos, and you could see animals making their homes in the same places as humans. It was unlike anywhere else in the world.#Speaker:Harold #type:external
+     ~nextVersion(true)
      ~numQuestions=numQuestions+1
    ->question_knot
 *[When did we go here?]
     Heh *Chuckles*, We watched that Crazy Rich Asians movie and as soon as the credits rolled, we looked at each other and said, “Let’s go there next.” A few months later, we booked a trip.#speaker:Harold #type:internal
+    ~nextVersion(true)
     ~numQuestions=numQuestions+1
    ->question_knot
 *->

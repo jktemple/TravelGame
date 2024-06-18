@@ -16,15 +16,17 @@ This was one of our longest trips. We were in a very foreign country, but we had
 *[How far away was this place?]
 This was one of the longest trips we ever took. It took us almost a full day to get there.#speaker:Harold #type:external
     ~numQuestions=numQuestions+1
+    ~nextVersion(true)
     ->questions_return
 *[When did we go here?]
     We went here in 2009, the year after they hosted the Olympics.#speaker:Harold #type:external
     ~numQuestions=numQuestions+1
+    ~nextVersion(true)
     ->questions_return
 *[What language do they speak here?]
     There are a few different languages spoken here, and you actually learned a little bit of one, but it was tricky. I remember at one restaurant you tried to order some dumplings, but you actually asked the waiter if you could go to sleep! #speaker:Harold #type:external
-    
     ~numQuestions=numQuestions+1
+    ~nextVersion(true)
     ->questions_return
 *->
    

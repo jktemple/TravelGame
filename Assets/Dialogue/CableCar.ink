@@ -18,14 +18,17 @@ I can't even tell what this thing is. What the heck am I looking at? #speaker:Di
 *[What is this thing?]
     This is a vehicle. I don't know if people actually use them anymore, but when we were there, this was the best way to get up and down the steep hills.#speaker:Harold #type:external
         ~numQuestions=numQuestions+1
+        ~nextVersion(true)
         ->questions_return
 *[What else did we do here?]
     We were here in the 70s which was a really special time for this city. We went to poetry readings, music cafes, art galleries... the city was just exploding with culture at that time. #speaker:Harold
         ~numQuestions=numQuestions+1
+        ~nextVersion(true)
         ->questions_return
 *[Was this place far away?]
     It was very far from where we lived then: New Jersey. But now that we live in Arizona, it's much closer, but still a few hours away by plane.#speaker:Harold
     ~numQuestions=numQuestions+1
+    ~nextVersion(true)
     ->questions_return
 *->
     ~enterGuessMode(true)
