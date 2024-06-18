@@ -15,6 +15,7 @@ public class Selection : MonoBehaviour
     private RaycastHit hit;
 
 
+
     public Transform targetPoint;
     private bool isselected = false;
 
@@ -29,6 +30,8 @@ public class Selection : MonoBehaviour
     Transform currentObject;
     Vector3 startPos;
     private bool hasHeldItem = false;
+
+
     // Update is called once per frame
     void Update()
     {
