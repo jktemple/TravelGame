@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shouldRotate: 1
+  useDepthOfField: 0
   materials:
   - {fileID: 2100000, guid: 10306808f1be1e34db5d2161c0f37c4d, type: 2}
   render: {fileID: 393843131221383866}

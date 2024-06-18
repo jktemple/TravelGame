@@ -5,6 +5,8 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 
 public class Selection : MonoBehaviour
 {
@@ -20,11 +22,16 @@ public class Selection : MonoBehaviour
 
     public Transform targetPoint;
 
+    [SerializeField]
+    Volume shortDepthOfField;
+    [SerializeField]
+    Volume longDepthOfField;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        shortDepthOfField.weight = 0.0f;
+        longDepthOfField.weight = 1.0f;
     }
 
     Transform currentObject;
@@ -138,6 +145,10 @@ public class Selection : MonoBehaviour
             {
                 //Debug.Log("item found");
                 rotation = item.shouldRotate;
+                if (item.useDepthOfField)
+                {
+                    shortDepthOfField.weight = 1.0f;
+                }
             }
             //Debug.Log(rotation);
             if (rotation)
@@ -153,6 +164,9 @@ public class Selection : MonoBehaviour
             {
                 dialogue.TriggerDialogue();
             }
+            longDepthOfField.weight = 0.0f;
+            
+            
         }
     }
 
@@ -166,6 +180,8 @@ public class Selection : MonoBehaviour
         StartCoroutine(MoveToPositionWithRotation(currentObject, targetPoint.position, startPos,currentObject.rotation, startRot, 0.25f));
         hasHeldItem = false;
         currentObject = null;
+        longDepthOfField.weight = 1.0f;
+        shortDepthOfField.weight = 0.0f;
     }
 
     private IEnumerator MoveToPositionNoRotation(Transform o, Vector3 start, Vector3 targetLocation, float time)

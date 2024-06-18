@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour
 {
     public bool shouldRotate;
+    public bool useDepthOfField = true;
     // Start is called before the first frame update
     void Start()
     {
