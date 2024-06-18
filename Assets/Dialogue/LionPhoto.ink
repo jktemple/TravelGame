@@ -18,14 +18,17 @@ This is so frustrating, this picture looks like nothing to me. #speaker:Diane #t
 *[What is this?]
     That’s an animal, Honey. We saw it from the jeep we were in.#speaker:Harold #type:external
         ~numQuestions=numQuestions+1
+        ~nextVersion(true)
         ->questions_return
 *[Why were you so scared?]
    Well, that animal had just walked past the jeep. The guide said that they usually ignore humans, so I wasn’t expecting it when it roared and took off running right as it was passing by! I nearly jumped out of my skin! #speaker:Harold
         ~numQuestions=numQuestions+1
+        ~nextVersion(true)
         ->questions_return
 *[Did we take the kids?]
    The kids were the reason why we took the trip in the first place! Adam was 10 and was obsessed with Simba. #speaker:Harold
     ~numQuestions=numQuestions+1
+    ~nextVersion(true)
     ->questions_return
 *->
     ~enterGuessMode(true)

@@ -28,8 +28,11 @@ public class DialogueManager : MonoBehaviour
     [Header("Guess UI")]
     [SerializeField] private GameObject[] guessButtons;
 
-    [Header("Onject UI")]
+    [Header("Object UI")]
     [SerializeField] private GameObject[] objectButtons;
+
+    [Header("Level Fader")]
+    [SerializeField] private LevelChanger levelChanger;
 
 
     private TextMeshProUGUI[] choicesText;
@@ -55,6 +58,7 @@ public class DialogueManager : MonoBehaviour
 
     private string correctGuessString;
 
+    private Item heldItem;
     private void Awake()
     {
         if(instance != null)
@@ -97,8 +101,9 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON, string correctGuess)
+    public void EnterDialogueMode(TextAsset inkJSON, string correctGuess, Item item)
     {
+        heldItem = item;
         currentStory = new Story(inkJSON.text);
         DialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
@@ -109,6 +114,9 @@ public class DialogueManager : MonoBehaviour
         {
             EnterGuessMode();
         });
+
+        currentStory.BindExternalFunction("endGame", (bool b) => { EndGame(); });
+        currentStory.BindExternalFunction("nextVersion", (bool b) => { NextItemVersion(); });
         nameTagText.text = "???";
         correctGuessString = correctGuess;
         ContinueStory();
@@ -121,7 +129,22 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = " ";
         dialogueVariables.StopListening(currentStory);
         currentStory.UnbindExternalFunction("enterGuessMode");
+        currentStory.UnbindExternalFunction("endGame");
+        currentStory.UnbindExternalFunction("nextVersion");
         ShowObjectButtons();
+    }
+
+    private void EndGame()
+    {
+        levelChanger.FadeToLevel(2);
+    }
+
+    private void NextItemVersion()
+    {
+        if (heldItem!= null)
+        {
+            heldItem.NextVersion();
+        }
     }
 
     private void ContinueStory()

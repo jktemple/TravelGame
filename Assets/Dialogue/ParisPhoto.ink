@@ -33,14 +33,17 @@ Now where did we take this picture?#speaker:Harold
 *[What’s this a picture of?]
     If I tell you that you’ll know it for sure! Let’s just say it’s one of the most famous buildings in Europe.#speaker:Harold #type:external
     ~numQuestions=numQuestions+1
+    ~nextVersion(true)
     ->questions_return
 *[When did we go here?]
     We went here for our 30th wedding anniversary. Our friends had told us it’s one of the most romantic cities in the world, and they were right!#speaker:Harold #type:external
     ~numQuestions=numQuestions+1
+    ~nextVersion(true)
     ->questions_return
 *[What did we do here?]
     We went to a cute bistro for dinner that night. We may have had one too many bottles of wine, and I’m pretty sure this was the night we tried frog legs. I hated them, but you liked them!#speaker:Harold #type:external
     ~numQuestions=numQuestions+1
+    ~nextVersion(true)
     ->questions_return
 * ->
 //this line calls a function in Unity to enter the mode for guessing the place
