@@ -27,5 +27,9 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    public void Start()
+    {
+        Play("Menu");
+    }
 
 }
