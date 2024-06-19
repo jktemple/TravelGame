@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.UIElements;
 
 public class Selection : MonoBehaviour
 {
@@ -190,7 +191,15 @@ public class Selection : MonoBehaviour
         {
             AudioManager.instance.Play("PutDownObject");
         }
-        currentObject.tag = "Untagged";
+
+        if(currentObject.TryGetComponent<DialogueTrigger>(out var dialogue))
+        {
+            if(dialogue.correctGuessString== "Singapore")
+            {
+                currentObject.tag = "Selectable";
+            }
+        } else { currentObject.tag = "Untagged"; }
+        
         hasHeldItem = false;
         currentObject = null;
         longDepthOfField.weight = 1.0f;

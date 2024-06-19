@@ -7,7 +7,7 @@ public class DialogueTrigger : MonoBehaviour
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
     [Header("Correct Guess String")]
-    [SerializeField] private string correctGuessString;
+    public string correctGuessString;
 
     Item item;
     // Start is called before the first frame update
