@@ -11,7 +11,7 @@ public class MapPins : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        HideMapPins();
     }
 
     // Update is called once per frame
@@ -22,13 +22,15 @@ public class MapPins : MonoBehaviour
 
     public void ShowMapPins()
     {
-        UIMapPin.SetActive(true);
-        TableMapPin.SetActive(true);
+        if (UIMapPin != null) { UIMapPin.SetActive(true); }
+        if (TableMapPin != null) { TableMapPin.SetActive(true); }
+        
     }
 
     public void HideMapPins()
     {
-        UIMapPin.SetActive(false);
-        TableMapPin.SetActive(false);
+        if (UIMapPin != null) { UIMapPin.SetActive(false); }
+        if (TableMapPin != null) { TableMapPin.SetActive(false); }
+
     }
 }
