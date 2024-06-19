@@ -578,8 +578,7 @@ MonoBehaviour:
   m_text: "Asset Credits\nMusic - Little Prince - Piotr Hummel - Free Music Archive\nAlert
     Chime 1 by FoolBoyMedia -- https://freesound.org/s/352659/\nUp Chime 2 by FoolBoyMedia
     -- https://freesound.org/s/352666/ \nSetting down small hard object by JoMungus
-    -- https://freesound.org/s/719794/ \nPage_Turn_18.wav by Koops -- https://freesound.org/s/20252/\nArnie
-    Font by Claire Jones"
+    -- https://freesound.org/s/719794/ \nPage_Turn_18.wav by Koops -- https://freesound.org/s/20252/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -606,7 +605,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.25
+  m_fontSize: 40.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -788,7 +787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Game
+  m_text: Restart Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c403bf6dc68651049bfe64e54d5c947c, type: 2}
   m_sharedMaterial: {fileID: -8786930016158147391, guid: c403bf6dc68651049bfe64e54d5c947c, type: 2}

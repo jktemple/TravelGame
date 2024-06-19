@@ -26,6 +26,11 @@ public class LevelChanger : MonoBehaviour
         Destroy(AudioManager.instance);
         SceneManager.LoadScene(levelToLoad);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit(); 
+    }
 }
 
 

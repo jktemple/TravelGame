@@ -149,6 +149,11 @@ public class Selection : MonoBehaviour
                 {
                     shortDepthOfField.weight = 1.0f;
                 }
+
+                if (currentObject.TryGetComponent<Photo>(out _))
+                {
+                    AudioManager.instance.Play("PageTurn");
+                }
             }
             //Debug.Log(rotation);
             if (rotation)
@@ -178,6 +183,13 @@ public class Selection : MonoBehaviour
         }
         //Debug.Log("letting go");
         StartCoroutine(MoveToPositionWithRotation(currentObject, targetPoint.position, startPos,currentObject.rotation, startRot, 0.25f));
+        if (currentObject.TryGetComponent<Photo>(out _))
+        {
+            AudioManager.instance.Play("PageTurn");
+        } else if(currentObject.TryGetComponent<ThreeDObject>(out _))
+        {
+            AudioManager.instance.Play("PutDownObject");
+        }
         hasHeldItem = false;
         currentObject = null;
         longDepthOfField.weight = 1.0f;

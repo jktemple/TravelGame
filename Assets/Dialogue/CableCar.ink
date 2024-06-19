@@ -45,7 +45,7 @@ He's treating me like a child! I knew it was San Francisco! Have I really gotten
 ->END
 
 ===incorrectAnswer===
-Oh... no Honey, we got this in San Francisco. We went here when we were in our 20s, so it was a long time ago. Maybe this one is too hard. #speaker:Harold
+Oh... no Honey, we got this in San Francisco. We went here when we were in our 20s, so it was a long time ago. Maybe this one is too hard. #speaker:Harold #type:external
 I thought the doctor said that it's mostly my short-term memoery that will be affected at this point... am I losing my long-term memory already? #speaker:Diane #type:internal
 ~objectsCompleted=objectsCompleted+1
 ->END

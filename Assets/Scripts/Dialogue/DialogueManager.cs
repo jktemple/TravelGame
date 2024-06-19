@@ -108,8 +108,8 @@ public class DialogueManager : MonoBehaviour
         }
         ExitGuessMode();
         HideMap();
-        
-        
+
+        AudioManager.instance.Play("Music");
         //HideObjectButtons();
     }
 
@@ -348,6 +348,8 @@ public class DialogueManager : MonoBehaviour
      
     private void Guess(string s, GameObject button)
     {
+        s = s.Trim();
+        correctGuessString = correctGuessString.Trim();
         if (s == correctGuessString)
         {
             currentStory.ChoosePathString("correctAnswer");
@@ -355,9 +357,11 @@ public class DialogueManager : MonoBehaviour
             {
                 pin.ShowMapPins();
             }
+            AudioManager.instance.Play("Correct");
             ContinueStory();
         } else
         {
+            AudioManager.instance.Play("Incorrect");
             currentStory.ChoosePathString("incorrectAnswer");
             ContinueStory();
         }
