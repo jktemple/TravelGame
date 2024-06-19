@@ -13,20 +13,20 @@ How old was I in the 90s? I feel like I was young... but I also think we had the
 ===questions_return===
 {
     -numQuestions<1: This must be some kind of toy… why would we get a toy as a souvenir? #speaker:Diane #type:internal
+    -else: Just what could this be? And where is it from? #speaker:Diane #type:internal
 }
-    
 *[What did we see there?]
     Some of the most ornate and decadent palaces in the world. You can see why they overthrew the emperor!#speaker:Harold #type:external
         ~numQuestions=numQuestions+1
         ~nextVersion(true)
         ->questions_return
 *[Why is this thing rattling? Is it broken?]
-    No, it’s not broken. There’s more of them inside, they just keep getting smaller and smaller. #speaker:Harold
+    No, it’s not broken. There’s more of them inside, they just keep getting smaller and smaller. #speaker:Harold #type:external
         ~numQuestions=numQuestions+1
         ~nextVersion(true)
         ->questions_return
-*[What do you mean after everything that happened? What happened?]
-     You used to teach about this in school: for a long time our countries weren’t friendly, and this entire part of the world was closed off to Americans. Our countries still aren’t too friendly, but it’s a lot better now than it was before. #speaker:Harold
+*[After everything that happened? What happened?]
+     You used to teach about this in school: for a long time our countries weren’t friendly, and this entire part of the world was closed off to Americans. Our countries still aren’t too friendly, but it’s a lot better now than it was before. #speaker:Harold #type:external
     ~numQuestions=numQuestions+1
     ~nextVersion(true)
     ->questions_return
@@ -36,7 +36,7 @@ How old was I in the 90s? I feel like I was young... but I also think we had the
     ->holdingKnot
     
 ===holdingKnot===
-Okay, I think you should have a pretty good idea of where we got these now. Do you want to guess? #speaker:Harold
+Okay, I think you should have a pretty good idea of where we got these now. Do you want to guess? #speaker:Harold #type:external
 ->holdingKnot
 
 ===correctAnswer===
