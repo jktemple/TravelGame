@@ -23,6 +23,7 @@ public class LevelChanger : MonoBehaviour
 
     public void OnFadeComplete()
     {
+        Destroy(AudioManager.instance);
         SceneManager.LoadScene(levelToLoad);
     }
 }
