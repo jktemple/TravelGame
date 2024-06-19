@@ -98,6 +98,14 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+
+        foreach(GameObject b in guessButtons)
+        {
+            if(b.TryGetComponent<MapPins>(out var pin))
+            {
+                pin.HideMapPins();
+            }
+        }
         ExitGuessMode();
         HideMap();
         
@@ -329,7 +337,7 @@ public class DialogueManager : MonoBehaviour
         {
             b.SetActive(true);
             string text = b.GetComponentInChildren<TextMeshProUGUI>().text;
-            b.GetComponentInChildren<Button>().onClick.AddListener(delegate { Guess(text); });
+            b.GetComponentInChildren<Button>().onClick.AddListener(delegate { Guess(text, b); });
         }
         if (tutorial.activeSelf)
         {
@@ -338,11 +346,15 @@ public class DialogueManager : MonoBehaviour
         
     }
      
-    private void Guess(string s)
+    private void Guess(string s, GameObject button)
     {
         if (s == correctGuessString)
         {
             currentStory.ChoosePathString("correctAnswer");
+            if (button.TryGetComponent<MapPins>(out var pin))
+            {
+                pin.ShowMapPins();
+            }
             ContinueStory();
         } else
         {
