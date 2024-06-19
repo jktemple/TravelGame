@@ -5,15 +5,14 @@ VAR completed = false
 ->questions_start
 ===questions_start===
 Ahh, that was a fun trip that we took when we were young, before we were even married. Do you remember where we got this? #speaker:Harold
-
 I can't even tell what this thing is. What the heck am I looking at? #speaker:Diane #type:internal
 ->questions_return
 
 ===questions_return===
 {
     -numQuestions<1: C’mon Diane, you know this. It’s a place in the US… but… gosh, it’s at the tip of my tongue but it won’t come out. #speaker:Diane #type:internal
+    -else: Why does this thing make me feel cold? #speaker:Diane #type:internal
 }
-
 *[What is this thing?]
     This is a vehicle. I don't know if people actually use them anymore, but when we were there, this was the best way to get up and down the steep hills.#speaker:Harold #type:external
         ~numQuestions=numQuestions+1

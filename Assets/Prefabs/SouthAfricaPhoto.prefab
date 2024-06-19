@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3865835661142225579}
   - component: {fileID: 7984285454027286945}
   - component: {fileID: 9047363161952549980}
+  - component: {fileID: 3750885923375066811}
   m_Layer: 0
   m_Name: SouthAfricaPhoto
   m_TagString: Selectable
@@ -51,8 +52,12 @@ MonoBehaviour:
   shouldRotate: 1
   useDepthOfField: 0
   materials:
-  - {fileID: 2100000, guid: 10306808f1be1e34db5d2161c0f37c4d, type: 2}
-  render: {fileID: 393843131221383866}
+  - {fileID: 2100000, guid: d49c48a0a91ce7a47b29189909ede7de, type: 2}
+  - {fileID: 2100000, guid: 32bed14323673184e9c332f7f7d60551, type: 2}
+  - {fileID: 2100000, guid: 7980235da709b3a479707b6305f9aaca, type: 2}
+  - {fileID: 2100000, guid: 66deffa1b8aafa24c85f1fd3862d12e4, type: 2}
+  render: {fileID: 7128699286978713390}
+  secondPhoto: {fileID: 3750885923375066811}
 --- !u!114 &7984285454027286945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +93,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.001, z: 0.02}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3750885923375066811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582253923425189931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd431bc653f82d4f8b96bd00a4fbf59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldRotate: 0
+  useDepthOfField: 1
+  materials:
+  - {fileID: 2100000, guid: 8427a3e9dcac99f4ebdc0f0abd1da7c5, type: 2}
+  - {fileID: 2100000, guid: e4cd7025948f21b40941c41c48d44e16, type: 2}
+  - {fileID: 2100000, guid: 780956c6a9890b0449df7b88d60474d7, type: 2}
+  - {fileID: 2100000, guid: 10306808f1be1e34db5d2161c0f37c4d, type: 2}
+  render: {fileID: 393843131221383866}
+  secondPhoto: {fileID: 0}
 --- !u!1 &7248322469584236273
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +125,6 @@ GameObject:
   - component: {fileID: 56929312813740337}
   - component: {fileID: 6227605853054300637}
   - component: {fileID: 7128699286978713390}
-  - component: {fileID: 6312883024515772830}
   m_Layer: 0
   m_Name: Frame
   m_TagString: Untagged
@@ -129,7 +154,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7248322469584236273}
-  m_Mesh: {fileID: 1637526288758671210, guid: 397a975b4cdb44d44ade6871b5c61fed, type: 3}
+  m_Mesh: {fileID: 1637526288758671210, guid: 2269916bfccf2c94a8627e61372c230e, type: 3}
 --- !u!23 &7128699286978713390
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -172,28 +197,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6312883024515772830
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7248322469584236273}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1637526288758671210, guid: 397a975b4cdb44d44ade6871b5c61fed, type: 3}
 --- !u!1 &8932873763608363563
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +208,6 @@ GameObject:
   - component: {fileID: 483962132087563895}
   - component: {fileID: 8352097860509630796}
   - component: {fileID: 393843131221383866}
-  - component: {fileID: 726239882909617980}
   m_Layer: 0
   m_Name: Photo
   m_TagString: Untagged
@@ -235,7 +237,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8932873763608363563}
-  m_Mesh: {fileID: -4832485421692893442, guid: 397a975b4cdb44d44ade6871b5c61fed, type: 3}
+  m_Mesh: {fileID: -4832485421692893442, guid: 2269916bfccf2c94a8627e61372c230e, type: 3}
 --- !u!23 &393843131221383866
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -278,25 +280,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &726239882909617980
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8932873763608363563}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4832485421692893442, guid: 397a975b4cdb44d44ade6871b5c61fed, type: 3}

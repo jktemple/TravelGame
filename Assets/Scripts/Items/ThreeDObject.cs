@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class ThreeDObject : Item
@@ -12,6 +13,9 @@ public class ThreeDObject : Item
     MeshFilter meshFilter;
     [SerializeField]
     Renderer render;
+    [SerializeField]
+    ThreeDObject secondObject;
+  
 
     int index = 0;
     public override void NextVersion()
@@ -20,20 +24,33 @@ public class ThreeDObject : Item
         {
             index++;
             render.material = materials[index];
-            meshFilter.mesh = meshes[index];
+            if (index > meshes.Length)
+            {
+                meshFilter.gameObject.SetActive(false);
+            }
+            else
+            {
+                meshFilter.mesh = meshes[index];
+            }
+        }
+        if(secondObject!= null)
+        {
+            secondObject.NextVersion();
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(gameObject.name);
         meshFilter.mesh = meshes[0];
         render.material = materials[0];
+  
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 }
