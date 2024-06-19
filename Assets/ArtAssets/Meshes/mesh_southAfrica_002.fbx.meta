@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: southAfrica_frame
     second: {fileID: 2100000, guid: 186ba01f29754fd42a87af2fe777de3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: southafrica_photo
+    second: {fileID: 2100000, guid: 10306808f1be1e34db5d2161c0f37c4d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
