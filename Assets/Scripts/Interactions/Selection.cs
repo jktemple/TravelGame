@@ -190,6 +190,7 @@ public class Selection : MonoBehaviour
         {
             AudioManager.instance.Play("PutDownObject");
         }
+        currentObject.tag = "Untagged";
         hasHeldItem = false;
         currentObject = null;
         longDepthOfField.weight = 1.0f;
@@ -240,11 +241,18 @@ public class Selection : MonoBehaviour
             o.Rotate(new Vector3(-1, 0, 0));
         } else if (Input.GetKey(KeyCode.A))
         {
-            o.Rotate(new Vector3(0,0,1));
+            o.Rotate(new Vector3(0, 0, 1));
         } else if (Input.GetKey(KeyCode.D))
         {
             o.Rotate(new Vector3(0, 0, -1));
-        } else if (Input.GetKey(KeyCode.Mouse1))
+        }else if (Input.GetKey(KeyCode.Q)) {
+            o.Rotate(new Vector3(0, 1, 0));
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            o.Rotate(new Vector3(0, -1, 0));
+        }
+        else if (Input.GetKey(KeyCode.Mouse1))
         {
             if (rotation)
             {
