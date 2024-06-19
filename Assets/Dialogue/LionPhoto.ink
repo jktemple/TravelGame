@@ -12,6 +12,7 @@ This is so frustrating, this picture looks like nothing to me. #speaker:Diane #t
 ===questions_return===
 {
     -numQuestions<1: Oh I remember this place having very good wine… but why can’t I remember where it is? #speaker:Diane #type:internal
+    -else: It's starting to feel a little more familar...#speaker:Diane #type:internal
 }
 
 *[What is this?]
@@ -36,6 +37,7 @@ This is so frustrating, this picture looks like nothing to me. #speaker:Diane #t
     
 ===holdingKnot===
 Okay Honey, do you know where this photo was taken? #speaker:Harold
+
 ->holdingKnot
 
 ===correctAnswer===

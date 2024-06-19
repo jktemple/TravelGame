@@ -10,6 +10,8 @@ public class Photo : Item
     Material[] materials;
     [SerializeField]
     Renderer render;
+    [SerializeField]
+    Photo secondPhoto;
     private int index = 0;
 
     public override void NextVersion()
@@ -17,6 +19,10 @@ public class Photo : Item
         if(index < materials.Length-1) {
             index++;
             render.material = materials[index]; 
+        } 
+        if(secondPhoto!= null)
+        {
+            secondPhoto.NextVersion();
         }
       
     }
