@@ -1,8 +1,12 @@
 INCLUDE Globals.ink
 VAR numQuestions = 0
+{snowGlobeCompleted: ->returing_after_finished}
 This was one of our longest trips. We were in a very foreign country, but we had an amazing time. We never imagined we’d go somewhere so exotic!#speaker:Harold #type:external
 ->questions_return
 
+===returing_after_finished===
+    Alright Honey, why don't you pick another souvenier and we'll do the same thing. #speaker:Harold #type:external
+    ->END
 ===questions_return===
 {
     -numQuestions<2:
@@ -29,7 +33,6 @@ This was one of the longest trips we ever took. It took us almost a full day to 
     ~nextVersion(true)
     ->questions_return
 *->
-   
     ~enterGuessMode(true)
     ~snowGlobeCompleted = true
     ->holdingKnot

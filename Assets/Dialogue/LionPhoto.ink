@@ -3,6 +3,12 @@ VAR numVists = 0
 VAR numQuestions = 0
 VAR completed = false
 ->questions_start
+{lionPhotoCompleted: ->returing_after_finished}
+->questions_start
+
+===returing_after_finished===
+    Alright Honey, why don't you pick another souvenier and we'll do the same thing. #speaker:Harold #type:external
+    ->END
 ===questions_start===
 Oh this was an incredible trip, but it’s also the most scared I’ve ever been in my life! Do you remember where we took this picture? #speaker:Harold
 

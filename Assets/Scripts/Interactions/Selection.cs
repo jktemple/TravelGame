@@ -45,7 +45,11 @@ public class Selection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!hasHeldItem) { HandleSelection(); }
+        if (!hasHeldItem && !inMotion) 
+        {
+            Debug.Log(inMotion);
+            HandleSelection(); 
+        }
         
         //cant select if already holding an object
         if(Input.GetKey(KeyCode.Mouse0) && selection != null && hasHeldItem == false && !inMotion)
@@ -159,10 +163,12 @@ public class Selection : MonoBehaviour
             //Debug.Log(rotation);
             if (rotation)
             {
+                StopAllCoroutines();
                 StartCoroutine(MoveToPositionWithRotation(currentObject, currentObject.position, targetPoint.position, startRot, targetPoint.rotation, 0.25f));
             }
             else
             {
+                StopAllCoroutines();
                 StartCoroutine(MoveToPositionNoRotation(hold, selection.position, targetPoint.position, 0.25f));
             }
             hasHeldItem = true;
@@ -183,6 +189,7 @@ public class Selection : MonoBehaviour
             return;
         }
         //Debug.Log("letting go");
+        StopAllCoroutines();
         StartCoroutine(MoveToPositionWithRotation(currentObject, targetPoint.position, startPos,currentObject.rotation, startRot, 0.25f));
         if (currentObject.TryGetComponent<Photo>(out _))
         {
@@ -191,15 +198,6 @@ public class Selection : MonoBehaviour
         {
             AudioManager.instance.Play("PutDownObject");
         }
-
-        if(currentObject.TryGetComponent<DialogueTrigger>(out var dialogue))
-        {
-            if(dialogue.correctGuessString== "Singapore")
-            {
-                currentObject.tag = "Selectable";
-            }
-        } else { currentObject.tag = "Untagged"; }
-        
         hasHeldItem = false;
         currentObject = null;
         longDepthOfField.weight = 1.0f;

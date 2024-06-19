@@ -2,6 +2,12 @@ INCLUDE Globals.ink
 VAR numVists = 0
 VAR numQuestions = 0
 VAR completed = false
+{nestingDollsCompleted: ->returing_after_finished}
+->questions_start
+
+===returing_after_finished===
+    Alright Honey, why don't you pick another souvenier and we'll do the same thing. #speaker:Harold #type:external
+    ->END
 ->questions_start
 ===questions_start===
 
@@ -43,7 +49,7 @@ Okay, I think you should have a pretty good idea of where we got these now. Do y
 Yes, St. Petersburg! Lots of Americans wanted to visit Russia after the Berlin Wall fell, and there was some pretty spectacular sightseeing. We went in April which might have been a bit of a mistake: it was quite chilly most of our trip. #speaker:Harold
 Because it's so far North. #speaker:Diane
 Yes, I think it's the farthest North we've ever traveled. Good memory, Honey!#speaker:Harold
-I remember that itgets colder the farther North you go, but I didn't remember it being cold when we went there. As long as I can make connections like that, maybe I can pass as someone who's not losing their mind.#speaker:Diane #type:internal
+I remember that it gets colder the farther North you go, but I didn't remember it being cold when we went there. As long as I can make connections like that, maybe I can pass as someone who's not losing their mind.#speaker:Diane #type:internal
 ~numCorrectGuesses=numCorrectGuesses+1
 ~objectsCompleted=objectsCompleted+1
 ->END

@@ -201,7 +201,7 @@ public class DialogueManager : MonoBehaviour
                 }else if(numOfContinues == 1)
                 {
                     tutorialText.text = "Use WASD and QE to Rotate the object";
-                } else if(numOfContinues == 5)
+                } else if(numOfContinues == 8)
                 {
                     tutorialText.text = "Right click resets the object's rotation";
                 }
