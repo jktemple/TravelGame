@@ -23,8 +23,14 @@ public class MapPins : MonoBehaviour
     public void ShowMapPins()
     {
         if (UIMapPin != null) { UIMapPin.SetActive(true); }
-        if (TableMapPin != null) { TableMapPin.SetActive(true); }
-        
+        if (TableMapPin != null) { 
+            TableMapPin.SetActive(true); 
+        }
+    }
+
+    public void PlayParticleEffect()
+    {
+        TableMapPin.GetComponentInChildren<ParticleSystem>().Play();
     }
 
     public void HideMapPins()

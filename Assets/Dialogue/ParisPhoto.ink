@@ -66,7 +66,7 @@ That’s right, Paris! This was one of my favorite trips we took, even if I was 
  
 ===incorrectAnswer===
 Nope, not there. This picture was taken in Paris, France. We took it almost 15 years ago. #speaker:Harold
-Oh right, I knew that. #Diane
+Oh right, I knew that. #speaker:Diane
 Why didn’t I know that? I know what the Eiffel Tower is. I was a geography teacher for crying out loud! #type:internal
 ~objectsCompleted=objectsCompleted+1
     -> END

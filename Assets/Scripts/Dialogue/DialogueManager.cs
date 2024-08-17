@@ -143,7 +143,7 @@ public class DialogueManager : MonoBehaviour
         correctGuessString = correctGuess;
         ContinueStory();
         selector.canReturnItem = false;
-
+        currentPin = null;
         numOfDialogues++;
         if (numOfDialogues > 1)
         {
@@ -345,7 +345,8 @@ public class DialogueManager : MonoBehaviour
         }
         
     }
-     
+    [HideInInspector]
+    public MapPins currentPin;
     private void Guess(string s, GameObject button)
     {
         s = s.Trim();
@@ -356,6 +357,7 @@ public class DialogueManager : MonoBehaviour
             if (button.TryGetComponent<MapPins>(out var pin))
             {
                 pin.ShowMapPins();
+                currentPin = pin;
             }
             AudioManager.instance.Play("Correct");
             ContinueStory();
