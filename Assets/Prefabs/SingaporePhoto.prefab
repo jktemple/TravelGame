@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 333599454030247679}
   - component: {fileID: 2445475746059260934}
   - component: {fileID: 6307746481016979411}
+  - component: {fileID: -3748074073344186252}
   m_Layer: 0
   m_Name: SingaporePhoto
   m_TagString: Selectable
@@ -99,12 +100,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shouldRotate: 1
+  useDepthOfField: 1
   materials:
   - {fileID: 2100000, guid: d7d4d88885c7af647893627e4c74e70a, type: 2}
   - {fileID: 2100000, guid: ce6236e511ea8fd41802ee25516caa00, type: 2}
   - {fileID: 2100000, guid: b4c7201b7c82d034c8a4f3b6e5569ed2, type: 2}
   - {fileID: 2100000, guid: de0be450f28ee284eaaf5d2909c13859, type: 2}
   render: {fileID: 7509098325647037538}
+  secondPhoto: {fileID: 0}
 --- !u!65 &2445475746059260934
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -140,3 +143,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: aee20f1f172f2374ca013125c147546a, type: 3}
   correctGuessString: Singapore
+--- !u!114 &-3748074073344186252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6049507670558148476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266fcee172f8bcb43b45e2e733ac752b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 1

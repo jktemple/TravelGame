@@ -236,7 +236,7 @@ public class Selection : MonoBehaviour
         yield return null;
     }
 
-    bool canRotate = true;
+    public bool canRotate = true;
     private void RotateItem (Transform o)
     {
         if (!canRotate) { return; }
@@ -259,7 +259,7 @@ public class Selection : MonoBehaviour
         {
             o.Rotate(new Vector3(0, -1, 0));
         }
-        else if (Input.GetKey(KeyCode.Mouse1))
+        else if (Input.GetKey(KeyCode.Mouse2))
         {
             if (rotation)
             {
@@ -288,6 +288,7 @@ public class Selection : MonoBehaviour
         yield return null;
     }
 
+    
 
 }
 

@@ -40,8 +40,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""4c218cf0-0690-466b-9ef5-f4e2e5fb9cf0"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""a482d5d5-0be5-4076-a9fb-32a59526ffdf"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -51,8 +51,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a482d5d5-0be5-4076-a9fb-32a59526ffdf"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""8c366595-0dd2-41b5-9c5d-325e6fb7df2a"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 594979972309842651}
   - component: {fileID: 6808481075847622083}
   - component: {fileID: 1142063411316163364}
+  - component: {fileID: 3499324771919686143}
   m_Layer: 0
   m_Name: NestingDolls
   m_TagString: Selectable
@@ -338,3 +339,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.05, y: 0.05, z: 0.05}
   m_Center: {x: 0, y: 0.015, z: 0}
+--- !u!114 &3499324771919686143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099101010540210966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266fcee172f8bcb43b45e2e733ac752b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 1

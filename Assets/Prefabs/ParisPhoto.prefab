@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8115077989662459777}
   - component: {fileID: 3251103295119586968}
   - component: {fileID: 8087755906366946314}
+  - component: {fileID: 719946088097357880}
   m_Layer: 0
   m_Name: ParisPhoto
   m_TagString: Selectable
@@ -99,12 +100,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shouldRotate: 1
+  useDepthOfField: 1
   materials:
   - {fileID: 2100000, guid: 96be90709758ab84fb2e93ba02f1905e, type: 2}
   - {fileID: 2100000, guid: 9b516625ee242d54fa806ea0103edf28, type: 2}
   - {fileID: 2100000, guid: 0d83d18e4020d634b89fb35515bba7ba, type: 2}
   - {fileID: 2100000, guid: 22584a03f4c64074eade61d06fe9e511, type: 2}
   render: {fileID: 2928724212926257155}
+  secondPhoto: {fileID: 0}
 --- !u!114 &3251103295119586968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +143,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06, y: 0.00020000004, z: 0.04000001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &719946088097357880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2709999977822176383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266fcee172f8bcb43b45e2e733ac752b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 1

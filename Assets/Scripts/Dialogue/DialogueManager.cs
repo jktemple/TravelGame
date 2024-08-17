@@ -200,10 +200,10 @@ public class DialogueManager : MonoBehaviour
                     tutorialText.text = "Left Click Advances the Dialogue";
                 }else if(numOfContinues == 1)
                 {
-                    tutorialText.text = "Use WASD and QE to Rotate the object";
+                    tutorialText.text = "Right Click and Drag to rotate the object or use WASD and QE";
                 } else if(numOfContinues == 8)
                 {
-                    tutorialText.text = "Right click resets the object's rotation";
+                    tutorialText.text = "Middle Mouse Click resets the object's rotation";
                 }
             }
 

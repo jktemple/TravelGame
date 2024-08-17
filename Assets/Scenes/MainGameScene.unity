@@ -8416,6 +8416,7 @@ MonoBehaviour:
   shortDepthOfField: {fileID: 588809061}
   longDepthOfField: {fileID: 1430833299}
   canReturnItem: 0
+  canRotate: 1
 --- !u!4 &1896402599
 Transform:
   m_ObjectHideFlags: 0
