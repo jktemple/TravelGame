@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7984285454027286945}
   - component: {fileID: 9047363161952549980}
   - component: {fileID: 3750885923375066811}
+  - component: {fileID: 4446115549544524362}
   m_Layer: 0
   m_Name: SouthAfricaPhoto
   m_TagString: Selectable
@@ -114,6 +115,19 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 10306808f1be1e34db5d2161c0f37c4d, type: 2}
   render: {fileID: 393843131221383866}
   secondPhoto: {fileID: 0}
+--- !u!114 &4446115549544524362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582253923425189931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266fcee172f8bcb43b45e2e733ac752b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 1
 --- !u!1 &7248322469584236273
 GameObject:
   m_ObjectHideFlags: 0

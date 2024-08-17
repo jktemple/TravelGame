@@ -202,6 +202,16 @@ public class Selection : MonoBehaviour
         currentObject = null;
         longDepthOfField.weight = 1.0f;
         shortDepthOfField.weight = 0.0f;
+        Invoke(nameof(PlayPinParticle), 0.4f);
+    }
+
+    void PlayPinParticle()
+    {
+        MapPins pin = DialogueManager.GetInstance().currentPin;
+        if(pin != null)
+        {
+            pin.PlayParticleEffect();
+        }
     }
 
     private IEnumerator MoveToPositionNoRotation(Transform o, Vector3 start, Vector3 targetLocation, float time)
@@ -236,7 +246,7 @@ public class Selection : MonoBehaviour
         yield return null;
     }
 
-    bool canRotate = true;
+    public bool canRotate = true;
     private void RotateItem (Transform o)
     {
         if (!canRotate) { return; }
@@ -259,7 +269,7 @@ public class Selection : MonoBehaviour
         {
             o.Rotate(new Vector3(0, -1, 0));
         }
-        else if (Input.GetKey(KeyCode.Mouse1))
+        else if (Input.GetKey(KeyCode.Mouse2))
         {
             if (rotation)
             {
@@ -288,6 +298,7 @@ public class Selection : MonoBehaviour
         yield return null;
     }
 
+    
 
 }
 
