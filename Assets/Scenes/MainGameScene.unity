@@ -356,6 +356,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 719946088097357880, guid: d3f27cf7ababccd4a9469f2a39ed8c26, type: 3}
+      propertyPath: rotationSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2709999977822176383, guid: d3f27cf7ababccd4a9469f2a39ed8c26, type: 3}
       propertyPath: m_Name
       value: ParisPhoto

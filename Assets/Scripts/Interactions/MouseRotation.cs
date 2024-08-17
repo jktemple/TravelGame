@@ -6,7 +6,7 @@ public class MouseRotation : MonoBehaviour
 {
     Selection select;
     [SerializeField]
-    float rotationSpeed = 1f;
+    float rotationSpeed = 2f;
 
     private void Start()
     {
