@@ -120,9 +120,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Star_Line_Color: {r: 1, g: 0.9528132, b: 0.6245283, a: 0}
-    - _star_fill_color: {r: 0.5999999, g: 0.51230305, b: 0, a: 0}
-    - _stars_Halo_Color: {r: 0.9018868, g: 0.29963297, b: 0, a: 0}
+    - _Star_Line_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _star_fill_color: {r: 0.87169814, g: 0.7678506, b: 0.16282654, a: 1}
+    - _stars_Halo_Color: {r: 0.7132074, g: 0.29178968, b: 0.08477742, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5717042423083921992
 MonoBehaviour:
